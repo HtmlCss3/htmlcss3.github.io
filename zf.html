@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="zh" style="font-size: 32px;">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no,uc-fitscreen=yes,viewport-fit=cover">
+    <title>合租</title>
+    <!-- css页面化方法 -->
+    <style>
+    @charset "UTF-8";
+    a, abbr, acronym, address, article, aside, audio, b, big, blockquote, body, canvas, caption, cite, code, dd, del, details, dfn, div, dl, dt, em, fieldset, figcaption, figure, footer, form, h1, h2, h3, h4, h5, h6, header, hgroup, html, i, iframe, img, ins, kbd, label, legend, li, mark, menu, nav, object, ol, output, p, pre, q, s, samp, section, small, span, strike, strong, sub, summary, sup, table, tbody, td, tfoot, th, thead, time, tr, tt, ul, var, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	line-height: 1;
+	vertical-align: baseline;
+	tap-highlight-color: transparent;
+	-webkit-tap-highlight-color: transparent
+}
+li, ol, ul {
+	list-style: none
+}
+a {
+	text-decoration: none;
+	color: #101d37
+}
+a:hover {
+	text-decoration: none
+}
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+	display: block
+}
+a, button {
+	tap-highlight-color: transparent;
+	-webkit-tap-highlight-color: transparent;
+	background-color: transparent;
+	outline: 0;
+	border: none;
+	padding: 0;
+	margin: 0
+}
+body {
+	font-family: Helvetica, sans-serif;
+	text-size-adjust: none;
+	user-select: none;
+	-webkit-text-size-adjust: none;
+	-webkit-user-select: none
+}
+a, img {
+	touch-callout: none;
+	-webkit-touch-callout: none
+}
+img {
+	max-width: 100%
+}
+body, html {
+	font-size:.8125rem;
+	user-select: none;
+	-webkit-user-select: none
+}
+body {
+	max-width: 750px;
+	margin: 0 auto;
+	overflow-y: auto;
+	font-family: PingFang-SC-Regular, Helvetica, sans-serif;
+	overflow-scrolling: touch;
+	text-size-adjust: none;
+	user-select: none;
+	-webkit-overflow-scrolling: touch;
+	color: #101d37;
+	background-color: #fff;
+	-webkit-text-size-adjust: none;
+	-webkit-user-select: none
+}
+.wrapper {
+	max-width: 100%;
+	margin: 0 auto
+}
+.oneline {
+	/* overflow: hidden; */
+	white-space: nowrap;
+	text-overflow: ellipsis
+}
+.fr {
+	float: right
+}
+.clearfix:after {
+	content: '';
+	display: block;
+	height: 0;
+	clear: both;
+	visibility: hidden
+}
+[data-el] {
+cursor:pointer
+}
+
+.box {
+	margin-left: 0.78125rem;
+	margin-right: 0.78125rem;
+	padding-bottom: 0.625rem;
+	border-bottom: 1px solid #e5e5e5
+}
+.page-title-info {
+	margin-top: 0.5rem;
+	border-bottom: 0
+}
+
+h2.page-title-h2 {
+	position: relative;
+	line-height: 0.9375rem;
+	font-size: 0.6875rem;
+	font-weight: 700
+}
+h3.page-title-h3 {
+	margin-top: 0.78125rem;
+	margin-bottom: 0.625rem;
+	color: #101d37;
+	font-size: 0.59375rem;
+	font-weight: 700
+}
+.page-title-h3 {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-pack: space-between;
+	-webkit-justify-content: space-between;
+	-ms-flex-pack: space-between;
+	justify-content: space-between;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	-ms-flex-align: center;
+	align-items: center;
+	margin-top: 1.5625rem;
+	margin-bottom: 1.25rem
+}
+.page-title-h3 h3 {
+	line-height: 0.6875rem;
+	font-size: 0.59375rem;
+	font-weight: 700;
+	color: #101d37
+}
+.page-title-h3 span {
+	line-height:0.5625rem;
+	font-size:.40625rem;
+	color: #101d37
+}
+.page-title-h3 strong {
+	line-height: 1.125rem;
+	font-size:.8125rem;
+	color: #000019
+}
+.slide {
+	padding-top: 75%;
+	position: relative;
+	overflow: hidden;
+	background-color: #efefef
+}
+.slide .slide__wrapper {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	overflow: hidden
+}
+.slide .slide__wrapper .slide__item {
+	float: left;
+	width: 100%;
+	height: 100%;
+	position: relative;
+	cursor: pointer
+}
+.slide .slide__wrapper .slide__item img {
+	width: 100%;
+	height: 100%
+}
+.slide .slide_pic_status {
+	position: absolute;
+	right:.625rem;
+	bottom:.5625rem;
+	width: 1.5rem;
+	height: 0.6875rem;
+	background: rgba(0,0,0,.4);
+	-webkit-border-radius:.6875rem;
+	-moz-border-radius:.6875rem;
+	border-radius:.6875rem;
+	color: #fff;
+	text-align: center;
+	padding:0 .34375rem;
+	line-height: 0.6875rem;
+	font-size:.4rem;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-o-box-sizing: border-box;
+	-ms-box-sizing: border-box;
+	box-sizing: border-box
+}
+.slide .slide_pic_status span {
+	color: #fff
+}
+.slide .slide__pic--type {
+	position: absolute;
+	left:.625rem;
+	bottom:.5625rem;
+	height: 0.6875rem;
+	line-height: 0.6875rem;
+	padding:0 .34375rem;
+	-webkit-border-radius:.34375rem;
+	-moz-border-radius:.34375rem;
+	border-radius:.34375rem;
+	background: rgba(0,0,0,.4);
+	color: #fff;
+	font-size:.4rem;
+	text-align: center
+}
+
+.content__detail--info {
+	font-size: 0;
+	padding-bottom:.25rem!important;
+	border-bottom: 0!important
+}
+.content__detail--info ul {
+	display: flex;
+	-webkit-box-align: baseline;
+	-webkit-align-items: baseline;
+	-ms-flex-align: baseline;
+	align-items: baseline;
+	-webkit-box-pack: space-between;
+	-webkit-justify-content: space-between;
+	-ms-flex-pack: space-between;
+	justify-content: space-between
+}
+.content__detail--info li {
+	width: 33.33%
+}
+.content__detail--info li:first-child {
+	padding-right: 0.625rem
+}
+.content__detail--info li:nth-child(2) {
+	border-right: 1px solid #eae6ef;
+	border-left: 1px solid #eae6ef;
+	padding-left: 0.625rem;
+	padding-right: 0.625rem
+}
+.content__detail--info li:last-child {
+	padding-left: 0.625rem
+}
+.content__detail--info li span:first-child {
+	font-size:.40625rem;
+	line-height: 0.5625rem;
+	margin-bottom: 1px;
+	margin-top:-.109375rem;
+	display: block;
+	color: #9399a5
+}
+.content__detail--info li span:last-child {
+	font-size: 0.5rem;
+	line-height: 0.8125rem;
+	font-weight: 700;
+	white-space: nowrap;
+	color: #fe615a
+}
+.content__detail--subtitle {
+	font-size:.9375rem;
+	margin-top: 0.625rem;
+	color: #9399a5
+}
+.content__detail--title--tip {
+	position: absolute;
+	right: 0;
+top:.25rem;
+	text-align: right;
+	width: 30%;
+	color: #9399a5;
+font-size:.8125rem;
+	font-weight: 400
+}
+.content__detail--title--tip span {
+	font-size: 1.3125rem;
+	color: #fe615a;
+	font-weight: 700;
+margin-bottom:.5rem;
+	display: block
+}
+.content__item__tag--wrapper {
+	margin-bottom: 0.625rem;
+	font-size: 0
+}
+.page-house-info {
+	margin-top: 0.78125rem
+}
+.page-house-info .content__item__tag--wrapper {
+	margin-bottom: 0.3125rem
+}
+.page-house-info .content__item__tag--wrapper i {
+	display: inline-block;
+	font-size:.34215rem;
+	height:.6375rem;
+	line-height:.6375rem;
+	margin-right:.3125rem;
+	padding-right:.1875rem;
+	padding-left:.1875rem;
+	-webkit-border-radius:.125rem;
+	-moz-border-radius:.125rem;
+	border-radius:.125rem;
+	color: #5680a6;
+	background: #e6ecf2
+}
+.page-house-info ul.page-house-info-list {
+	overflow: hidden;
+	padding-top: 2px;
+}
+.page-house-info li {
+	float: left;
+	width: 50%;
+	font-size: 0.4rem;
+	line-height: 0.5rem;	
+	margin-bottom: 0.4rem;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-pack: flex-start;
+	-webkit-justify-content: flex-start;
+	-ms-flex-pack: flex-start;
+	justify-content: flex-start;
+	-webkit-box-align: baseline;
+	-webkit-align-items: baseline;
+	-ms-flex-align: baseline;
+	align-items: baseline
+}
+.page-house-info li label {
+	color: #9399a5;
+	flex-shrink: 0
+}
+
+.page-map-list {
+	margin-top: 0.75rem
+}
+.page-map-list li {
+	color: #101d37;
+	font-size: 0.5rem;
+	margin-bottom: 0.75rem
+}
+.page-map-list li:last-child {
+	margin-bottom: 0
+}
+.page-map-list li span {
+	color: #101d37
+}
+.page-map-list li i {
+	font-size:.375rem;
+	border: 1px solid #101d37;
+	-webkit-border-radius:.125rem;
+	-moz-border-radius:.125rem;
+	border-radius:.125rem;
+	display: inline-block;
+	padding:.125rem .3125rem .125rem .1875rem;
+	margin-left:.125rem;
+	-webkit-transform: scale(.9);
+	-webkit-transform: scale(.9);
+	-ms-transform: scale(.9);
+	-moz-transform: scale(.9);
+	-o-transform: scale(.9);
+	transform: scale(.9);
+	position: relative;
+	/* top:-.00625rem */
+}
+.page-house-description {
+	overflow: hidden;
+	padding-bottom: 0
+}
+.page-house-description ul.page-house-description-list {
+	margin: 0 -0.625rem
+}
+.page-house-description ul.page-house-description-list li {
+	float: left;
+	width: 20%;
+	text-align: center;
+	margin-bottom: 0.5rem;
+	line-height: 0.53125rem;
+	font-size:.375rem;
+	color: #9399a5
+}
+.page-house-description ul.page-house-description-list li i {
+	display: block;
+	width: 0.9375rem;
+	height: 0.9375rem;
+	margin:0 auto .125rem;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: 80% 80%;
+	background-image: url(./images/unknown@2x.png)
+}
+
+  </style>
+    
+</head>
+
+<body class="">
+    <!-- 页面内容容器 -->
+    <div class="wrapper ">
+        
+        <div class="page-house-container">
+            <!-- 房源banner部分 -->
+            <div class="slide" id="mySwipe" style="visibility: visible;">
+                <ul class="slide__wrapper" id="fimg" data-appsource="200100000004" style="width: 100%;">
+                    <li class="slide__item" data-el="slideItem" data-name="客厅" data-type="202000000201" data-index="0" style="width: 100%; left: 0px; transition-duration: 0ms; transform: translate(0px, 0px) translateZ(0px);">
+                        <img alt="芭蕾雨悦都北区 2室1厅 南/北" src="./images/16.jpg" class="lazyloaded" >
+                    </li>
+                    
+                </ul>
+                <!-- 房源底部页码标签 -->
+                <span class="slide_pic_status"><span data-el="current_pic">1</span>/6</span>
+                <span class="slide__pic--type" data-el="currentPicType">卧室</span>
+            </div>
+            <!-- 房源标题 -->
+            <div class="box page-title-info">
+                <h2 class="page-title-h2">合租·芭蕾雨悦都·3居室-02卧</h2>
+            </div>
+            <!-- 关键信息展示：面积、租金、户型 -->
+            <div class="box content__detail--info">
+                <ul>
+                    <li>
+                        <span>房租</span>
+                        <span>1400元/月</span>
+                    </li>
+                    <li>
+                        <span>户型</span>
+                        <span>3室1厅1卫</span>
+                    </li>
+                    <li>
+                        <span>面积</span>
+                        <span>89㎡</span>
+                    </li>
+                </ul>
+            </div>
+            
+            <!-- 房源信息列表 -->
+            <div class="box page-house-info">
+                <!-- 房源标签 -->
+                <p class="content__item__tag--wrapper">
+                    <i class="content__item__tag--is_subway_house">近地铁</i>
+                    <i class="content__item__tag--central_heating">集中供暖</i>
+                    <i class="content__item__tag--is_key">随时看房</i>
+                </p>
+                <!-- 房源信息列表 -->
+                <ul class="page-house-info-list">
+                   
+                    <li class="oneline">
+                        <label>入住：</label>
+                        <span>随时入住</span>
+                    </li>
+                    
+                    <li class="oneline">
+                        <label>楼层：</label>
+                        <span>高楼层/9层</span>
+                    </li>
+                    <li class="oneline">
+                        <label>电梯：</label>
+                        <span>有</span>
+                    </li>
+                    <li class="oneline">
+                        <label>车位：</label>
+                        <span>暂无数据</span>
+                    </li>
+                    <li class="oneline">
+                        <label>用水：</label>
+                        <span>民水</span>
+                    </li>
+                    <li class="oneline">
+                        <label>用电：</label>
+                        <span>民电</span>
+                    </li>
+                    <li class="oneline">
+                        <label>燃气：</label>
+                        <span>有</span>
+                    </li>
+                    <li class="oneline">
+                        <label>采暖：</label>
+                        <span>集中供暖</span>
+                    </li>
+                </ul>
+                
+            </div>
+            
+            <!-- 附近地铁列表 -->
+            <ul class="box page-map-list">
+                <li>
+                    篱笆房 <i>房山线</i>
+                    <span class="fr">200米</span>
+                </li>
+            </ul>
+            <!-- 房屋配置 -->
+            <div class="box page-house-description">
+                <h3 class="page-title-h3">房屋配置</h3>
+                <!-- 户型设备配置 -->
+                <ul class="page-house-description-list clearfix">
+                    <li class="oneline">
+                        <i style="background-image: url(./images/tv.png)"></i>
+                        电视 </li>
+                    <li class="oneline">
+                        <i style="background-image: url(./images/bx.png)"></i>
+                        冰箱 </li>
+                    <li class="oneline">
+                        <i style="background-image: url(./images/xyj.png)"></i>
+                        洗衣机 </li>
+                    <li class="oneline">
+                        <i style="background-image: url(./images/kt.png)"></i>
+                        空调 </li>
+                    <li class="oneline">
+                        <i style="background-image: url(./images/bgl.png)"></i>
+                        壁挂炉 </li>
+                    <li class="oneline">
+                        <i style="background-image: url(./images/chuang.png)"></i>
+                        床 </li>
+                    <li class="oneline">
+                        <i style="background-image: url(./images/nq.png)"></i>
+                        暖气 </li>
+                    <li class="oneline">
+                        <i style="background-image: url(./images/yg.png)"></i>
+                        衣柜 </li>
+                    <li class="oneline">
+                        <i style="background-image: url(./images/kd.png)"></i>
+                        宽带 </li>
+                    
+                    <li class="oneline">
+                        <i style="background-image: url(./images/trq.png)"></i>
+                        天然气 </li>
+                </ul>
+            </div>
+            <!-- 房源简介 -->
+            <div class="box">
+                <h3 class="page-title-h3">房源简介</h3>
+                <div>
+                	<img src="images/14.jpg">
+                	<img src="images/16.jpg">
+                	<img src="images/17.jpg">
+                	<img src="images/18.jpg" width="100%">
+                	<img src="images/19.jpg" width="100%">
+                </div>
+            </div>
+            
+           
+        </div>
+        
+        
+</body>
+
+</html>
